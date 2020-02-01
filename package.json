@@ -1,0 +1,21 @@
+{
+  "name": "isuknovalnik",
+  "version": "1.0.0",
+  "author": "Inna Suknovalnik",
+  "dependencies": {},
+  "main": "Gulpfile.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=5.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.13.0",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.6.0",
+    "rupture": "^0.6.2"
+  }
+}

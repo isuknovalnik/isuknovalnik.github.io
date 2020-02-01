@@ -1,0 +1,60 @@
+.toad {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  width: 112px;
+  height: 72px;
+  background-image: url("../img/toad.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+.toad:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.toad-text {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 20px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #514964;
+  background-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.toad-text--hide {
+  display: none;
+}
+
+@media (max-device-width: 560px) {
+  .toad {
+    width: 56px;
+    height: 36px;
+  }
+
+  .toad-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-device-height: 560px) {
+  .toad {
+    width: 56px;
+    height: 37px;
+  }
+
+  .toad-text {
+    font-size: 14px;
+  }
+}

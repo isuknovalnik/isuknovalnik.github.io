@@ -1,0 +1,25 @@
+rupture.scale = 0 560px 1040px
+rupture.scale-names = 'r560' 'r1040' 'hd'
+
+@import 'is.styl'
+@import 'layouts.styl'
+
+.page
+	font-family 'Arial', sans-serif
+	cursor default
+	background-color #ffffff
+	user-select none
+	
+.box
+	display flex
+	min-height 100vh
+	min-width 320px
+	margin 0
+	font-size 22px
+	color #1d1d1d
+	background-color #ffffff
+
+	+below(r560)
+		flex-direction column
+		font-size 18px
+		

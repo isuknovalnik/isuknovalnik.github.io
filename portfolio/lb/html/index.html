@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#272727">
+    <title>main page</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="../assets/js/preloader.js" async></script>
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/ico">
+    <style>
+      .preload-animation {
+        width: 51px;
+        display: flex;
+        justify-content: space-between
+      }
+
+      .preload-animation div {
+        width: 12px;
+        height: 12px;
+        animation: bounce 1.4s ease-in-out 0s infinite both;
+        border-radius: 100%;
+        background-color: #666B6F
+      }
+
+      .preload-animation div:nth-child(1) {
+        animation-delay: -.32s
+      }
+
+      .preload-animation div:nth-child(2) {
+        animation-delay: -.16s
+      }
+
+      @keyframes bounce {
+        0%, 100%, 80% {
+          transform: scale(0)
+        }
+        40% {
+          transform: scale(1)
+        }
+      }
+    </style>
+  </head>
+
+  <!--style="overflow:hidden;" на body для прелоадера-->
+  <body style="overflow:hidden;">
+
+    <!--блок с анимацией прелоадера-->
+    <div class="js-preloader" style="display:flex;justify-content:center;align-items:center;height: 100vh;width: 100%;position: fixed;top:0;left:0;z-index: 200;background-color: #fff;transition: opacity 0.5s ease-in-out;opacity: 1;">
+      <div class="preload-animation">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden" class="symbols">
+      <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="arrow" viewBox="0 0 22 40"><path d="M1.4 0L0 1.4 19.1 20 0 38.6 1.4 40 22 20 1.4 0z"/></symbol><symbol id="burger" viewBox="0 0 20 20"><path d="M1 4v2h18V4H1zm0 5v2h18V9H1zm0 5v2h18v-2H1z"/></symbol><symbol id="cart" viewBox="0 0 20 20"><path d="M14 4c0-2.2-1.8-4-4-4S6 1.8 6 4H2v13c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4h-4zm-4-2c1.1 0 2 .9 2 2H8c0-1.1.9-2 2-2zm6 15H4V6h2v2c0 .6.4 1 1 1s1-.4 1-1V6h4v2c0 .6.4 1 1 1s1-.4 1-1V6h2v11z"/></symbol><symbol id="cross" viewBox="0 0 20 20"><path d="M17.1 4.3l-1.4-1.4L10 8.6 4.3 2.9 2.9 4.3 8.6 10l-5.7 5.7 1.4 1.4 5.7-5.7 5.7 5.7 1.4-1.4-5.7-5.7z"/></symbol><symbol id="email" viewBox="0 0 16 15"><path d="M8.1 0C3.2 0 0 3.2 0 7.5S3.2 15 8 15c1.3 0 2.7-.3 3.9-.8l-.6-1.7c-1 .5-2.2.7-3.3.7-.8 0-1.5-.1-2.2-.4s-1.4-.7-1.9-1.2-1-1.2-1.3-1.9c-.2-.7-.4-1.5-.4-2.2 0-.8.2-1.5.5-2.2S3.4 3.9 4 3.4c.6-.5 1.2-.9 1.9-1.2.7-.3 1.5-.4 2.2-.4C11.6 1.8 14 4 14 7.1c0 1.9-.4 2.5-1 2.5-.4 0-.7-.2-.7-1v-5H9.5v.8c-.3-.3-.7-.6-1-.7s-.8-.2-1.2-.1c-1 .1-1.9.6-2.6 1.3-.7.8-1.1 1.7-1.1 2.8s.4 2 1.1 2.7c.7.8 1.6 1.2 2.6 1.3.5 0 1.1-.1 1.5-.3.5-.3.9-.6 1.1-1.1.2.5.6.8 1 1.1.4.3.9.4 1.4.3 2.1 0 3.6-1.6 3.6-4.7.1-3.9-3.1-7-7.8-7zM8 9.5c-.4.1-.8 0-1.1-.2-.4-.1-.7-.4-.8-.8-.2-.3-.3-.7-.3-1.1 0-.4.2-.7.5-1 .3-.3.6-.5 1-.6.3-.1.7 0 1.1.1.3.1.6.4.9.7.2.3.3.7.3 1.1 0 .2 0 .5-.1.7 0 .2-.1.4-.3.6-.1.1-.3.3-.6.4-.2.1-.4.1-.6.1z"/></symbol><symbol id="fb" viewBox="0 0 22 22"><path d="M8.8 21v-.2-8.5H5V8.5h3.8v-.2-2.4c0-.9.1-1.7.5-2.6.5-1.2 1.7-2.1 3-2.2.2 0 .4-.1.7-.1h3.5v3.7h-2.1c-.3 0-.7.1-1 .3-.4.3-.7.7-.7 1.3v2.2H17c-.2 1.3-.4 2.5-.6 3.7h-3.8V21H8.8z"/></symbol><symbol id="insta" viewBox="0 0 22 22"><path d="M7.2 1c-.4 0-.8 0-1.2.1-1.6.2-3 1.1-4 2.4-.7 1-1.1 2.1-1 3.3v8.5c0 .4 0 .9.2 1.3.5 1.9 1.9 3.4 3.7 4 .6.3 1.3.4 2.1.4H14.9c.9 0 1.7-.2 2.5-.5 2.1-.8 3.6-2.9 3.6-5.2V6.6c0-.5-.1-1-.2-1.5-.5-1.9-2-3.3-3.8-3.9-.7-.1-1.4-.2-2-.2H7.2zm0 2H15c.5 0 1 .1 1.4.2 1.2.4 2.1 1.3 2.5 2.5 0 .3.1.6.1 1V15.3c0 1.5-.9 2.8-2.3 3.3-.6.2-1.2.3-1.8.3H7v.1c-.5 0-1-.1-1.5-.3-1.2-.4-2.1-1.4-2.4-2.6-.1-.2-.1-.5-.1-.8V6.7c0-.7.2-1.4.6-2 .6-.9 1.6-1.5 2.7-1.6.3-.1.6-.1.9-.1zM16 5c-.6 0-1 .4-1 1s.4 1 1 1 1-.4 1-1-.4-1-1-1zm-5 2c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></symbol><symbol id="mail" viewBox="0 0 20 14"><path d="M20 12.4s0 .1-.1.1c-.1.4-.4.8-.7 1.1-.4.3-.8.4-1.3.4H2c-.3 0-.6 0-.8-.1-.3-.1-.5-.3-.7-.4-.2-.2-.3-.4-.4-.7-.1-.3-.1-.6-.1-.9V2.1c0-.3 0-.6.1-.8C.2 1 .4.8.6.6c.2-.2.4-.4.7-.5.2-.1.5-.1.8-.1h15.7c.5 0 1 .1 1.4.4.4.3.7.7.8 1.2v10.8zm-2-9.2c-.1.1-.2.2-.3.2-2.3 2-4.5 4-6.8 6.1l-.3.3c-.1.1-.3.1-.4.1-.1 0-.3 0-.4-.1-.2 0-.3-.1-.4-.2C7 7.5 4.7 5.5 2.3 3.4c-.1 0-.2-.1-.3-.2V12h16V3.2zm-7.8 4.4c2.1-1.9 4.1-3.7 6.2-5.6H3.7C5.9 3.9 8 5.7 10.2 7.6z"/></symbol><symbol id="ok" viewBox="0 0 22 22"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 3.93c-1.142 0-2.07.93-2.07 2.071 0 1.14.928 2.07 2.07 2.07 1.14 0 2.07-.93 2.07-2.07 0-1.142-.93-2.07-2.07-2.07zM11 11c-2.758 0-5-2.242-5-4.999A5.005 5.005 0 0 1 11 1c2.757 0 5 2.243 5 5.001A5.005 5.005 0 0 1 11 11z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.837 15.246a9.927 9.927 0 0 1-3.105-1.306 1.607 1.607 0 0 1-.491-2.195 1.55 1.55 0 0 1 2.16-.5 6.697 6.697 0 0 0 7.198 0 1.55 1.55 0 0 1 2.16.5 1.606 1.606 0 0 1-.49 2.195 9.94 9.94 0 0 1-3.105 1.306l2.989 3.037a1.61 1.61 0 0 1 0 2.25 1.55 1.55 0 0 1-2.216 0L11 17.55l-2.939 2.984a1.548 1.548 0 0 1-2.214 0 1.608 1.608 0 0 1 0-2.25l2.989-3.037"/></symbol><symbol id="phone" viewBox="0 0 18 28"><path d="M16 0H2C.9 0 0 .9 0 2v24c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM2 2h14v2H2V2zm14 3v18H2V5h14zM9 26c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1H2v-2h14v2H9z"/></symbol><symbol id="tw" viewBox="0 0 22 22"><path d="M22 4.894c-.699.321-1.45.539-2.239.635a4.032 4.032 0 0 0 1.715-2.234c-.754.463-1.588.8-2.476.98A3.834 3.834 0 0 0 16.154 3C14 3 12.257 4.808 12.257 7.039c0 .316.033.625.1.92-3.24-.168-6.112-1.776-8.035-4.22a4.14 4.14 0 0 0-.527 2.03 4.08 4.08 0 0 0 1.733 3.363 3.783 3.783 0 0 1-1.765-.505v.05c0 1.958 1.343 3.59 3.126 3.962a3.795 3.795 0 0 1-1.76.07c.496 1.603 1.936 2.771 3.641 2.804A7.648 7.648 0 0 1 3 17.186 10.764 10.764 0 0 0 8.975 19c7.17 0 11.091-6.155 11.091-11.492 0-.175-.005-.35-.012-.523A8.072 8.072 0 0 0 22 4.894z"/></symbol><symbol id="vk" viewBox="0 0 22 22"><path d="M7.2 5.8c.2-.4.6-.6 1-.7.4 0 .8-.1 1.2-.1h1.9c.3 0 .6.1.9.1.4.1.6.4.7.7.1.4.1.8 0 1.2 0 .8-.1 1.6-.1 2.4 0 .3 0 .6.2.9.1.1.2.3.3.4.1.1.2.1.2.1.3-.1.5-.3.7-.5.9-1.1 1.7-2.4 2.3-3.7.1-.1.1-.3.2-.4.2-.4.6-.7 1-.6h2.7c.4 0 .8 0 1.2.1.2-.2.4.1.4.3v.4c-.2.5-.4 1-.7 1.4-.5.7-1.1 1.4-1.6 2-.3.4-.6.7-.9 1.1-.1.2-.2.3-.3.5-.1.4 0 .8.3 1 .4.4.9.8 1.4 1.2.6.5 1.1 1.2 1.6 1.8.1.2.2.3.2.5.1.3 0 .6-.3.7-.3.2-.6.2-.9.2h-1.9c-.3 0-.6 0-1 .1h-.3c-.6-.1-1.2-.4-1.6-.9-.4-.4-.8-.9-1.2-1.3l-.5-.5c-.1-.1-.3-.1-.4-.2-.3-.1-.6.1-.7.4-.1.2-.1.5-.2.7 0 .3 0 .5-.1.8 0 .5-.4.8-.8.8H12c-.5.1-1 .1-1.5 0-.8 0-1.6-.2-2.3-.5-1.1-.4-2.1-1-2.8-1.9-1.1-1.2-2.1-2.4-2.9-3.8C1.7 9.6 1 8.4.4 7.1.2 6.7.1 6.3 0 5.9c0-.1 0-.2.1-.2.2-.1.4-.2.7-.2H4c.3 0 .5.2.6.4.1.3.3.6.4.9.6 1.2 1.3 2.4 2.2 3.5l.3.3c.1.1.2.1.3.2.2.1.4.1.5-.1v-.1c.1-.2.2-.5.2-.7.2-.9.2-1.9.1-2.8 0-.1 0-.2-.1-.3-.1-.4-.3-.7-.7-.8-.2-.1-.4-.1-.6-.2z"/></symbol><symbol id="zoom" viewBox="0 0 23.999999 23.999999"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10a9.958 9.958 0 0 0 6.328-2.258l5.965 5.965a1 1 0 1 0 1.414-1.414l-5.965-5.965A9.958 9.958 0 0 0 20 10c0-5.523-4.477-10-10-10zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3c-.552 0-1 .406-1 .908V9H5.908C5.406 9 5 9.448 5 10s.406 1 .908 1H9v3.092c0 .502.448.908 1 .908s1-.406 1-.908V11h3.092c.502 0 .908-.448.908-1s-.406-1-.908-1H11V5.908C11 5.406 10.552 5 10 5z" clip-rule="evenodd" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
+    </div>
+    <header class="header">
+  <a class="header__nav-btn" href="#">Меню
+    <svg class="header__nav-symbol header__nav-symbol--burger" width="20" height="20">
+      <use xlink:href="#burger"></use></svg>
+    <svg class="header__nav-symbol header__nav-symbol--cross" width="20" height="20">
+      <use xlink:href="#cross"></use></svg>
+  </a>
+  <a class="logo header__logo" href="#">
+      <p class="visually-hidden">LightBeam</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="204" height="16" viewBox="0 0 204 16" class="logo__img">
+        <path class="logo__right" d="M124.7,1.7c0.3,1.5,0.3,3.1,0.1,4.7c-0.1,0.4-0.3,0.8-0.6,1.1C123.9,7.8,123.5,8,123,8c0.4,0,0.9,0.2,1.2,0.5
+        c0.3,0.3,0.5,0.7,0.6,1.1c0.2,1.6,0.2,3.1-0.1,4.7c-0.1,0.4-0.3,0.8-0.7,1c-0.3,0.3-0.8,0.4-1.2,0.4c-4.1,0.3-8.2,0.3-12.3-0.1V0.3
+        c4.1-0.3,8.2-0.3,12.3,0c0.4,0,0.8,0.1,1.2,0.4C124.4,0.9,124.6,1.3,124.7,1.7z M113.5,6.9h7.9c0.1,0,0.2,0,0.3-0.1s0.2-0.2,0.2-0.3
+        c0.1-1.2,0.1-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.3-0.1c-2.6-0.2-5.3-0.2-7.9,0V6.9z M113.5,9.2v4.4
+        c2.6,0.1,5.3,0.1,7.9,0c0.1,0,0.2,0,0.3-0.1c0.1-0.1,0.1-0.2,0.2-0.3c0.2-1.2,0.2-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3s-0.2-0.1-0.3-0.1
+        L113.5,9.2L113.5,9.2z M149.9,15.8h-11.5c-0.5,0-1-0.1-1.3-0.4c-0.4-0.3-0.6-0.7-0.7-1.2V1.8c0.1-0.5,0.3-0.9,0.7-1.2
+        c0.4-0.3,0.8-0.4,1.3-0.4h11.5v2.3h-10c-0.1,0-0.3,0-0.4,0.1c-0.1,0.1-0.2,0.2-0.2,0.3v3.9h7.9v2.3h-7.9V13c0,0.1,0.1,0.2,0.2,0.3
+        c0.1,0.1,0.2,0.1,0.4,0.1h10V15.8L149.9,15.8z M171.8,15.9V9.3h-8.3v6.6h-2.9v-14c0.1-0.5,0.3-0.9,0.6-1.2c0.3-0.3,0.8-0.5,1.2-0.4
+        c3.5-0.3,6.9-0.3,10.4,0c0.5,0,0.9,0.1,1.2,0.4c0.3,0.3,0.6,0.7,0.6,1.2v14L171.8,15.9L171.8,15.9z M163.5,7h8.3V3
+        c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.3-0.1c-2.4-0.1-4.9-0.1-7.3,0c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.2,0.2-0.2,0.3V7L163.5,7z
+         M186.4,15.9V1.7c0-1.7,2.8-2.2,3.8-0.7l4.8,7.5c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1-0.1l4.8-7.5
+        c1-1.5,3.8-0.9,3.8,0.7v14.2h-2.9V5c0,0,0,0,0,0s0,0,0,0c0,0,0,0,0,0s0,0,0,0l-4,6.3c-0.2,0.3-0.5,0.5-0.8,0.6
+        c-0.3,0.2-0.6,0.2-1,0.2c-0.3,0-0.7-0.1-1-0.2c-0.3-0.2-0.6-0.4-0.8-0.6l-4-6.3c0,0,0,0,0,0s0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0v10.9
+        H186.4z"/>
+        <path class="logo__left" d="M2.9,0.2V13c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.1,0.4,0.1h8v2.3H2c-0.2,0-0.5,0-0.7-0.1
+          c-0.2-0.1-0.4-0.2-0.6-0.3c-0.2-0.1-0.3-0.3-0.4-0.5C0.1,14.6,0,14.4,0,14.2v-14H2.9L2.9,0.2z M24.4,15.8h-2.9V0.2h2.9L24.4,15.8
+          L24.4,15.8z M49.2,2.5c-3.3-0.2-6.6-0.3-9.9-0.1c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.2,0.3c-0.2,3.4-0.2,6.9,0,10.3
+          c0,0.1,0,0.1,0,0.2c0,0.1,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0c2.4,0.2,4.9,0.2,7.4,0c0.1,0,0.2,0,0.3-0.1
+          c0.1-0.1,0.1-0.2,0.2-0.3c0.1-1.2,0.1-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.4-0.1h-3.8V6.8H48c0.5,0,0.9,0.1,1.3,0.4
+          c0.4,0.3,0.6,0.7,0.7,1.2c0.2,2,0.2,3.9,0,5.9c-0.1,0.4-0.3,0.8-0.6,1.1c-0.3,0.3-0.8,0.4-1.2,0.4c-3.4,0.3-6.9,0.3-10.3,0
+          c-0.4,0-0.9-0.1-1.2-0.4c-0.3-0.3-0.6-0.7-0.6-1.1c-0.3-4.2-0.3-8.4,0-12.5c0.1-0.4,0.3-0.8,0.6-1.1c0.3-0.3,0.8-0.4,1.2-0.4
+          c3.9-0.3,7.7-0.3,11.6,0L49.2,2.5z M75.4,0.2v15.6h-2.9V9.2h-8.2v6.6h-2.9V0.2h2.9v6.6h8.2V0.2H75.4z M86.6,0.2h14.2v2.3h-5.7v13.2
+          h-2.9V2.5h-5.7L86.6,0.2L86.6,0.2z"/>
+    </svg>
+  </a>
+  <a href="#" class="cart-btn">
+    <span class="visually-hidden">Корзина</span>
+    <svg class="cart-btn__symbol" width="20" height="20"><use xlink:href="#cart"></use></svg>
+    <span class="cart-btn__number">2</span>
+  </a>
+</header>
+
+
+    <div id="index-page">
+      <div class="fullscreen-swiper">
+        <div class="fullscreen-wrapper">
+          <div class="swiper-screen swiper-slide">
+              <div class="index-banner">
+                  <div class="index-banner__wrap swiper-wow" data-animation="fadeInLeft">
+                    <div class="logo logo--title">
+                      <h1 class="visually-hidden">LightBeam</h1>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="204" height="16" viewBox="0 0 204 16" class="logo__img">
+                        <path class="logo__right" d="M124.7,1.7c0.3,1.5,0.3,3.1,0.1,4.7c-0.1,0.4-0.3,0.8-0.6,1.1C123.9,7.8,123.5,8,123,8c0.4,0,0.9,0.2,1.2,0.5
+                        c0.3,0.3,0.5,0.7,0.6,1.1c0.2,1.6,0.2,3.1-0.1,4.7c-0.1,0.4-0.3,0.8-0.7,1c-0.3,0.3-0.8,0.4-1.2,0.4c-4.1,0.3-8.2,0.3-12.3-0.1V0.3
+                        c4.1-0.3,8.2-0.3,12.3,0c0.4,0,0.8,0.1,1.2,0.4C124.4,0.9,124.6,1.3,124.7,1.7z M113.5,6.9h7.9c0.1,0,0.2,0,0.3-0.1s0.2-0.2,0.2-0.3
+                        c0.1-1.2,0.1-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.3-0.1c-2.6-0.2-5.3-0.2-7.9,0V6.9z M113.5,9.2v4.4
+                        c2.6,0.1,5.3,0.1,7.9,0c0.1,0,0.2,0,0.3-0.1c0.1-0.1,0.1-0.2,0.2-0.3c0.2-1.2,0.2-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3s-0.2-0.1-0.3-0.1
+                        L113.5,9.2L113.5,9.2z M149.9,15.8h-11.5c-0.5,0-1-0.1-1.3-0.4c-0.4-0.3-0.6-0.7-0.7-1.2V1.8c0.1-0.5,0.3-0.9,0.7-1.2
+                        c0.4-0.3,0.8-0.4,1.3-0.4h11.5v2.3h-10c-0.1,0-0.3,0-0.4,0.1c-0.1,0.1-0.2,0.2-0.2,0.3v3.9h7.9v2.3h-7.9V13c0,0.1,0.1,0.2,0.2,0.3
+                        c0.1,0.1,0.2,0.1,0.4,0.1h10V15.8L149.9,15.8z M171.8,15.9V9.3h-8.3v6.6h-2.9v-14c0.1-0.5,0.3-0.9,0.6-1.2c0.3-0.3,0.8-0.5,1.2-0.4
+                        c3.5-0.3,6.9-0.3,10.4,0c0.5,0,0.9,0.1,1.2,0.4c0.3,0.3,0.6,0.7,0.6,1.2v14L171.8,15.9L171.8,15.9z M163.5,7h8.3V3
+                        c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.3-0.1c-2.4-0.1-4.9-0.1-7.3,0c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.2,0.2-0.2,0.3V7L163.5,7z
+                        M186.4,15.9V1.7c0-1.7,2.8-2.2,3.8-0.7l4.8,7.5c0,0,0.1,0.1,0.1,0.1c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1-0.1l4.8-7.5
+                        c1-1.5,3.8-0.9,3.8,0.7v14.2h-2.9V5c0,0,0,0,0,0s0,0,0,0c0,0,0,0,0,0s0,0,0,0l-4,6.3c-0.2,0.3-0.5,0.5-0.8,0.6
+                        c-0.3,0.2-0.6,0.2-1,0.2c-0.3,0-0.7-0.1-1-0.2c-0.3-0.2-0.6-0.4-0.8-0.6l-4-6.3c0,0,0,0,0,0s0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0v10.9
+                        H186.4z"/>
+                        <path class="logo__left" d="M2.9,0.2V13c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.1,0.4,0.1h8v2.3H2c-0.2,0-0.5,0-0.7-0.1
+                          c-0.2-0.1-0.4-0.2-0.6-0.3c-0.2-0.1-0.3-0.3-0.4-0.5C0.1,14.6,0,14.4,0,14.2v-14H2.9L2.9,0.2z M24.4,15.8h-2.9V0.2h2.9L24.4,15.8
+                          L24.4,15.8z M49.2,2.5c-3.3-0.2-6.6-0.3-9.9-0.1c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.2,0.3c-0.2,3.4-0.2,6.9,0,10.3
+                          c0,0.1,0,0.1,0,0.2c0,0.1,0.1,0.1,0.1,0.1c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0c2.4,0.2,4.9,0.2,7.4,0c0.1,0,0.2,0,0.3-0.1
+                          c0.1-0.1,0.1-0.2,0.2-0.3c0.1-1.2,0.1-2.4,0-3.6c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.4-0.1h-3.8V6.8H48c0.5,0,0.9,0.1,1.3,0.4
+                          c0.4,0.3,0.6,0.7,0.7,1.2c0.2,2,0.2,3.9,0,5.9c-0.1,0.4-0.3,0.8-0.6,1.1c-0.3,0.3-0.8,0.4-1.2,0.4c-3.4,0.3-6.9,0.3-10.3,0
+                          c-0.4,0-0.9-0.1-1.2-0.4c-0.3-0.3-0.6-0.7-0.6-1.1c-0.3-4.2-0.3-8.4,0-12.5c0.1-0.4,0.3-0.8,0.6-1.1c0.3-0.3,0.8-0.4,1.2-0.4
+                          c3.9-0.3,7.7-0.3,11.6,0L49.2,2.5z M75.4,0.2v15.6h-2.9V9.2h-8.2v6.6h-2.9V0.2h2.9v6.6h8.2V0.2H75.4z M86.6,0.2h14.2v2.3h-5.7v13.2
+                          h-2.9V2.5h-5.7L86.6,0.2L86.6,0.2z"/>
+                      </svg>
+                    </div>
+                    <p class="index-banner__text">функциональная непромокаемая одежда, созданная для городских жителей</p>
+                    <div class="index-banner__buttons">
+                      <a class="button button--mob-long" href="#">купить сейчас</a>
+                      <a class="button button--light button--mob-long" href="#">Узнать больше</a>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide" id="about-product" data-hash="about-product">
+            <div class="index-product-intro">
+              <div class="index-product-intro__img-wrap swiper-wow" data-animation="fadeInLeft"></div>
+              <div class="index-product-intro__wrap swiper-wow" data-animation="fadeInRight">
+                <h2 class="section-title">О продукте</h2>
+                <p class="text index-product-intro__text">Парка Lightbeam обладает всеми функциональными свойствами, необходимыми при плохой погоде:</p>
+                <ul class="list-bold index-product-intro__list">
+                  <li>водонепроницаемость</li>
+                  <li>ветронепродуваемость</li>
+                  <li>светоотражение</li>
+                </ul>
+                <div class="index-product-intro__icons">
+                  <img src="../assets/svg/feature-ext.svg" width="100" height="100" alt="">
+                  <img src="../assets/svg/feature2.svg" width="100" height="100" alt="">
+                  <img src="../assets/svg/feature1.svg" width="100" height="100" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide">
+            <div class="index-product index-product--first">
+              <div class="text-card index-product__card swiper-wow" data-animation="fadeInLeft">
+                <p class="text-card__text text">Для парки Lightbeam<br>мы продумали <span class="bold">обновленный классический крой</span>, который легко сочетается с образами из любого гардероба</p>
+                <a class="button" href="#">купить сейчас</a>
+              </div>
+              <div class="index-product__img-wrap swiper-wow" data-animation="fadeInDown">
+                <picture class="index-product__img">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-1.webp, ../assets/img/product-1@2x.webp 2x" type="image/webp">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-1.jpg, ../assets/img/product-1@2x.jpg 2x">
+                  <source srcset="../assets/img/product-1.webp" type="image/webp">
+                  <img src="../assets/img/product-1.jpg" width="690" height="800" class="index-product__img" alt="">
+                </picture>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-screen swiper-slide">
+            <div class="index-product index-product--second">
+              <div class="index-product__img-wrap swiper-wow" data-animation="fadeInLeft">
+                <picture class="index-product__img">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-2.webp, ../assets/img/product-2@2x.webp 2x" type="image/webp">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-2.jpg, ../assets/img/product-2@2x.jpg 2x">
+                  <source srcset="../assets/img/product-2.webp" type="image/webp">
+                  <img src="../assets/img/product-2.jpg" width="690" height="800" class="index-product__img" alt="">
+                </picture>
+              </div>
+              <div class="text-card text-card--grey index-product__card swiper-wow" data-animation="fadeInDown">
+                <p class="text-card__text text"><span class="bold">Свободный силуэт</span> парки дает возможность надевать под нее теплые вещи, тем самым создавая эффект многослойности, который очень актуален в модной индустрии</p>
+                <a class="button" href="#">купить сейчас</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-screen swiper-slide">
+
+            <div class="index-product-features index-product-features--first">
+              <div class="index-product-features__wrap swiper-wow" data-animation="fadeInLeft">
+                <div class="index-product-feature">
+                  <img src="../assets/svg/feature1.svg" width="100" height="100" class="index-product-feature__img" alt="">
+                  <div class="index-product-feature__wrap">
+                    <p class="index-product-feature__title">Эффект отражения до 500 метров для&nbsp;безопасности в темное время суток, например, при переходе дороги</p>
+                    <p class="index-product-feature__text">Светоотражающая ткань</p>
+                  </div>
+                </div>
+                <div class="index-product-feature">
+                  <img src="../assets/svg/feature2.svg" width="100" height="100" class="index-product-feature__img" alt="">
+                  <div class="index-product-feature__wrap">
+                    <p class="index-product-feature__title">Эффективный воздухообмен</p>
+                    <p class="index-product-feature__text">Перфорация на ткани</p>
+                  </div>
+                </div>
+                <div class="index-product-feature">
+                  <img src="../assets/svg/feature3.svg" width="100" height="100" class="index-product-feature__img" alt="">
+                  <div class="index-product-feature__wrap">
+                    <p class="index-product-feature__title">Модификация силуэт</p>
+                    <p class="index-product-feature__text">Затяжки на талии и рукавах</p>
+                    <p class="index-product-feature__text">Возможность удлинения рукавов</p>
+                  </div>
+                </div>
+              </div>
+              <div class="index-product-features__img-wrap swiper-wow" data-animation="fadeInDown">
+                <picture class="index-product-features__img">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-features-1.webp, ../assets/img/product-features-1@2x.webp 2x" type="image/webp">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-features-1.jpg, ../assets/img/product-features-1@2x.jpg 2x">
+                  <source srcset="../assets/img/product-features-1.webp" type="image/webp">
+                  <img src="../assets/img/product-features-1.jpg" width="520" height="610" class="index-product-features__img" alt="">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide">
+
+            <div class="index-product-features index-product-features--second">
+              <div class="index-product-features__img-wrap swiper-wow" data-animation="fadeInUp">
+                <picture class="index-product-features__img">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-features-2.webp, ../assets/img/product-features-2@2x.webp 2x" type="image/webp">
+                  <source media="(min-width:768px)" srcset="../assets/img/product-features-2.jpg, ../assets/img/product-features-2@2x.jpg 2x">
+                  <source srcset="../assets/img/product-features-2.webp" type="image/webp">
+                  <img src="../assets/img/product-features-2.jpg" width="520" height="610" class="index-product-features__img" alt="">
+                </picture>
+              </div>
+              <div class="index-product-features__wrap swiper-wow" data-animation="fadeInRight">
+                <div class="index-product-feature">
+                  <img src="../assets/svg/feature4.svg" width="100" height="100" class="index-product-feature__img" alt="">
+                  <div class="index-product-feature__wrap">
+                    <p class="index-product-feature__title">Надежная защита от влаги и ветра</p>
+                    <p class="index-product-feature__text">Карманы с клапаном</p>
+                    <p class="index-product-feature__text">Заваренные швы</p>
+                    <p class="index-product-feature__text">Кокетка и клапан на капюшоне</p>
+                    <p class="index-product-feature__text">Кулиска на рукавах</p>
+                    <p class="index-product-feature__text">Возможность модификации рукавов</p>
+                    <p class="index-product-feature__text">Ламинированный хлопок</p>
+                  </div>
+                </div>
+                <div class="index-product-feature">
+                  <img src="../assets/svg/feature5.svg" width="100" height="100" class="index-product-feature__img" alt="">
+                  <div class="index-product-feature__wrap">
+                    <p class="index-product-feature__title">Комфорт и тепло</p>
+                    <p class="index-product-feature__text">Карманы с флисовой подкладкой</p>
+                    <p class="index-product-feature__text">Подкладка из вискозы</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide" id="about-brand" data-hash="about-brand">
+            <div class="index-brand">
+              <div class="text-card text-card--brand index-brand__card swiper-wow" data-animation="fadeInLeft">
+                <h2 class="section-title">о бренде</h2>
+                <p class="text-card__text">Мы родились и выросли в Санкт-Петербурге —<br>городе, в котором что ни день, то серое небо и свинцовые тучи, изморось и дожди.</p>
+                <p class="text-card__text">Когда погода такая непредсказуемая, то от одежды многое зависит: и качество дня, и планы на вечер. Ведь никогда не знаешь придешь ли ты обратно домой промокшим до нитки или нет.</p>
+              </div>
+              <div class="index-brand__img-wrap swiper-wow" data-animation="fadeInDown">
+                <picture class="index-brand__img">
+                  <source media="(min-width:768px)" srcset="../assets/img/brand.webp, ../assets/img/brand@2x.webp 2x" type="image/webp">
+                  <source media="(min-width:768px)" srcset="../assets/img/brand.jpg, ../assets/img/brand@2x.jpg 2x">
+                  <source srcset="../assets/img/brand.webp" type="image/webp">
+                  <img src="../assets/img/brand.jpg" width="690" height="800" class="index-brand__img" alt="">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide" id="lookbook" data-hash="lookbook">
+            <div class="index-lookbook">
+              <h2 class="visually-hidden">лукбук</h2>
+              <div class="lookbook-slider swiper-wow" data-animation="fadeIn">
+                <div class="lookbook-slider__container swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <picture class="lookbook__img">
+                          <source media="(min-width:1024px)" srcset="../assets/img/lb01.jpg, ../assets/img/lb01@2x.jpg 2x">
+                          <img src="../assets/img/lb01.jpg" width="520" height="700" class="lookbook-item__img" alt="">
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <picture class="lookbook__img">
+                          <source media="(min-width:1024px)" srcset="../assets/img/lb02.jpg, ../assets/img/lb02@2x.jpg 2x">
+                          <img src="../assets/img/lb02.jpg" width="520" height="700" class="lookbook-item__img" alt="">
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb03.jpg" data-srcset="../assets/img/lb03@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb04.jpg" data-srcset="../assets/img/lb04@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb05.jpg" data-srcset="../assets/img/lb05@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb06.jpg" data-srcset="../assets/img/lb06@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb07.jpg" data-srcset="../assets/img/lb07@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb08.jpg" data-srcset="../assets/img/lb08@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb09.jpg" data-srcset="../assets/img/lb09@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb10.jpg" data-srcset="../assets/img/lb10@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb11.jpg" data-srcset="../assets/img/lb11@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb12.jpg" data-srcset="../assets/img/lb12@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb13.jpg" data-srcset="../assets/img/lb13@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb14.jpg" data-srcset="../assets/img/lb14@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb15.jpg" data-srcset="../assets/img/lb15@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb16.jpg" data-srcset="../assets/img/lb16@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb17.jpg" data-srcset="../assets/img/lb17@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb18.jpg" data-srcset="../assets/img/lb18@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb19.jpg" data-srcset="../assets/img/lb19@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb20.jpg" data-srcset="../assets/img/lb20@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb21.jpg" data-srcset="../assets/img/lb21@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb22.jpg" data-srcset="../assets/img/lb22@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb23.jpg" data-srcset="../assets/img/lb23@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb24.jpg" data-srcset="../assets/img/lb24@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb25.jpg" data-srcset="../assets/img/lb25@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb26.jpg" data-srcset="../assets/img/lb26@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb27.jpg" data-srcset="../assets/img/lb27@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb28.jpg" data-srcset="../assets/img/lb28@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb29.jpg" data-srcset="../assets/img/lb29@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb30.jpg" data-srcset="../assets/img/lb30@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb31.jpg" data-srcset="../assets/img/lb31@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb32.jpg" data-srcset="../assets/img/lb32@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb33.jpg" data-srcset="../assets/img/lb33@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb34.jpg" data-srcset="../assets/img/lb34@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb35.jpg" data-srcset="../assets/img/lb35@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb36.jpg" data-srcset="../assets/img/lb36@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb37.jpg" data-srcset="../assets/img/lb37@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb38.jpg" data-srcset="../assets/img/lb38@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb39.jpg" data-srcset="../assets/img/lb39@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb40.jpg" data-srcset="../assets/img/lb40@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb41.jpg" data-srcset="../assets/img/lb41@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb42.jpg" data-srcset="../assets/img/lb42@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb43.jpg" data-srcset="../assets/img/lb43@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb44.jpg" data-srcset="../assets/img/lb44@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb45.jpg" data-srcset="../assets/img/lb45@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb46.jpg" data-srcset="../assets/img/lb46@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb47.jpg" data-srcset="../assets/img/lb47@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb48.jpg" data-srcset="../assets/img/lb48@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb49.jpg" data-srcset="../assets/img/lb49@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb50.jpg" data-srcset="../assets/img/lb50@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb51.jpg" data-srcset="../assets/img/lb51@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb52.jpg" data-srcset="../assets/img/lb52@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb53.jpg" data-srcset="../assets/img/lb53@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb54.jpg" data-srcset="../assets/img/lb54@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb55.jpg" data-srcset="../assets/img/lb55@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb56.jpg" data-srcset="../assets/img/lb56@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb57.jpg" data-srcset="../assets/img/lb57@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                    <div class="lookbook-item swiper-slide">
+                      <div class="lookbook-item__img-wrap">
+                        <img data-src="../assets/img/lb58.jpg" data-srcset="../assets/img/lb58@2x.jpg 2x" width="520" height="700" class="lookbook-item__img swiper-lazy">
+                        <div class="swiper-lazy-preloader"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="lookbook-slider__btn lookbook-slider__btn--prev slider-arrow slider-arrow--prev" type="button" id="lookbook-btn-prev" name="lookbook-btn-prev">пред.<svg width="22" height="40" class="slider-arrow__symbol"><use xlink:href="#arrow"></use></svg></button>
+                <button class="lookbook-slider__btn lookbook-slider__btn--next slider-arrow" type="button" id="lookbook-btn-next" name="lookbook-btn-next">след.<svg width="22" height="40" class="slider-arrow__symbol"><use xlink:href="#arrow"></use></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-screen swiper-slide" id="contacts" data-hash="contacts">
+            <div class="index-contacts">
+              <div class="index-contacts__wrap swiper-wow" data-animation="fadeInLeft">
+                <h2 class="section-title">наши Контакты</h2>
+                <div class="index-contacts__phone-mail">
+                  <a href="tel:+79315839927" target="blank" class="phone">
+                    <svg width="18" height="28"><use xlink:href="#phone"></use></svg>
+                    <span>+7 931 583 99 27</span>
+                  </a>
+                  <a href="mailto:info@lightbeamco.com" target="blank" class="mail">
+                    <svg width="20" height="14"><use xlink:href="#mail"></use></svg>
+                    <span>info@lightbeamco.com</span>
+                  </a>
+                </div>
+              </div>
+
+              <footer class="footer swiper-wow" data-animation="fadeInRight">
+  <div class="footer__social-wrap">
+    <ul class="social-links">
+      <li><a href="#" class="social-links__link social-links__link--inst"><svg width="22" height="22"><use xlink:href="#insta"></use></svg>instagram</a></li>
+      <li><a href="#" class="social-links__link social-links__link--vk"><svg width="22" height="22"><use xlink:href="#vk"></use></svg>vkontakte</a></li>
+      <li><a href="#" class="social-links__link social-links__link--fb"><svg width="22" height="22"><use xlink:href="#fb"></use></svg>facebook</a></li>
+    </ul>
+    <form class="footer__subscribe js-form" action="#" method="get">
+      <div class="text-input text-input--subscribe">
+        <svg width="16" height="15" class="text-input__icon"><use xlink:href="#email"></use></svg>
+        <input type="email" name="email" value="" id="email" placeholder="Ваш Email" class="text-input__input" required>
+      </div>
+      <button type="submit" class="footer__submit button button--subscribe js-submit">Подписаться</button>
+    </form>
+  </div>
+  <div class="footer__links-wrap">
+    <span class="footer__copyright">© 2019 Lightbeam</span>
+    <ul class="footer__links footer-links">
+      <li><a href="#" class="footer-links__link">FAQ</a></li>
+      <li><a href="#" class="footer-links__link">Условия соглашения</a></li>
+      <li><a href="#" class="footer-links__link">Оплата и Доставка</a></li>
+    </ul>
+  </div>
+</footer>
+
+              
+            </div>
+          </div>
+        </div>
+        <div class="fullscreen-pagination swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="header-modal">
+  <div class="header-modal__wrap">
+    <div class="header-modal__int-wrap">
+      <ul class="main-nav">
+        <li><a href="#about-product" class="main-nav__link js-scroll-to">О продукте</a></li>
+        <li><a href="#" class="main-nav__link">Каталог</a></li>
+        <li><a href="#about-brand" class="main-nav__link js-scroll-to">О Бренде</a></li>
+        <li><a href="#lookbook" class="main-nav__link js-scroll-to">лукбук</a></li>
+        <li><a href="#contacts" class="main-nav__link js-scroll-to">Контакты</a></li>
+      </ul>
+      <ul class="header-modal__links header-modal-links">
+        <li><a href="#" class="header-modal-links__link">FAQ</a></li>
+        <li><a href="#" class="header-modal-links__link">Условия соглашения</a></li>
+        <li><a href="#" class="header-modal-links__link">Оплата и Доставка</a></li>
+      </ul>
+    </div>
+    <ul class="social-links social-links--header-modal">
+      <li><a href="#" class="social-links__link social-links__link--inst"><svg width="22" height="22"><use xlink:href="#insta"></use></svg>instagram</a></li>
+      <li><a href="#" class="social-links__link social-links__link--vk"><svg width="22" height="22"><use xlink:href="#vk"></use></svg>vkontakte</a></li>
+      <li><a href="#" class="social-links__link social-links__link--fb"><svg width="22" height="22"><use xlink:href="#fb"></use></svg>facebook</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    
+    <link href="../assets/media/theme.css" rel="stylesheet">
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/swiper.min.js"></script>
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/index.js"></script>
+    
+  </body>
+
+</html>

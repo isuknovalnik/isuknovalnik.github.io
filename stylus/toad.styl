@@ -1,0 +1,52 @@
+rupture.scale = 0 560px 1040px
+rupture.scale-names = 'r560' 'r1040' 'hd'
+
+.toad
+	position fixed
+	bottom 40px
+	right 30px
+	width 112px
+	height 72px
+	background-image url(../img/toad.svg)
+	background-size contain
+	background-repeat no-repeat
+	opacity 0.75
+	transition opacity 0.3s
+	
+	@media (max-device-width: 560px) {
+		width 56px
+		height 36px
+	}
+		
+	@media (max-device-height: 560px) {
+		width 56px
+		height 37px
+	}
+	
+	&:hover
+		cursor pointer
+		opacity 1
+	
+	&-text
+		position fixed
+		bottom 10px
+		right 20px
+		padding-left 3px
+		padding-right 3px
+		font-size 20px
+		border 1px solid transparent
+		border-radius 3px
+		color #514964
+		background-color transparent
+		user-select none
+		
+		@media (max-device-width: 560px) {
+			font-size 14px
+		}
+			
+		@media (max-device-height: 560px) {
+			font-size 14px
+		}
+		
+		&--hide
+			display none
